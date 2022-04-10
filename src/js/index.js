@@ -32,6 +32,8 @@ function loadTable(){
                 html+="<td>"+list[i].description+"</td>";
                 html+="<td>"+list[i].catogory+"</td>";
                 html+="<td>"+list[i].price+"</td>";
+                html+="<td><button onclick='remove("+i+")'>Usuń</button></td>";
+                html+="<td><button onclick='edit("+i+")'>Edytuj</button></td>";
             html+="</tr>";
         }
 
@@ -45,6 +47,15 @@ function loadTable(){
     }
 }
 
+function remove(i){
+  list.splice(i, 1);
+  loadTable();
+  
+}
+
+function edit(i){
+  document.getElementById('nameInput').value=list[i].name;
+}
 
 function showTable(){
   var el = document.getElementById("equipmentTable");
